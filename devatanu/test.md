@@ -76,31 +76,34 @@ It should have the following methods...
 The `BankAccount` class has a `transactionHistory` property which keeps track of the withdrawals and deposits made to the account.
 * Make sure to indicate whether the transaction increased or decreased the amount of money in the bank.
 
-```text
-var BankAccount = function(type,balance=0){
-    var tempAcc = {}
+```js
 
-    tempAcc.type. = type;
-    tempAcc.balance = balance<0 ? 0 : balance;
-
-    tempAcc.withdraw = function(ammount){
-        tempAcc.balance -= ammount>tempAcc.balance ? 0 : ammount;
+class BankAccount {
+    constructor(type,balanc=0) {
+        this.type = type;
+        this.balance = balance;
     }
 
-    tempAcc.deposit = function(ammount){
-        tempAcc.balance += ammount
+
+    withdraw(ammount){
+        this.balance -= ammount>this.balance ? 0 : ammount;
     }
 
-    tempAcc.showBalance = function(){
-        console.log(tempAcc.balance);
+    deposit(ammount){
+        this.balance += ammount;
     }
 
-    return tempAcc;
+    showBalance() {
+        console.log(this.balance);
+    }
+
 }
+
 ```
+
 
 Create an instance of the BankAccount class
 
-```text
+```js
 var DTsBankAccount = BankAccount('savings',1000000.01);
 ```
